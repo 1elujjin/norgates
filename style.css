@@ -119,3 +119,23 @@ section { padding: 64px 24px; }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* @media (prefers-reduced-motion: reduce) { *, .marquee { animation: none !important; transition: none !important; } }
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-logo {
+    margin-left: 0;
+    margin-right: auto;
+    position: static;
+    transform: none;
+  }
+
+  .topbar-buttons {
+    margin-left: auto;
+  }
+}

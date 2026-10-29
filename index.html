@@ -1,102 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Norgates — Record Label</title>
-  <meta name="description" content="Norgates is the world's leading fully independent record label, serving 50+ artists across 180+ countries.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Roboto+Condensed:wght@400;700&family=Herr+Von+Muellerhoff&family=Inter:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Norgates — Independent Record Label | Release, Distribute & Own Your Music</title>
+<meta name="description" content="Norgates is an independent record label for bedroom producers, scene kids and outsiders. Release worldwide on every streaming platform, get transparent royalties and keep 100% of your masters.">
+<meta name="keywords" content="Norgates, independent record label, indie label, music distribution, release music, artist submissions, keep your masters, music royalties">
+<meta name="author" content="Norgates">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Norgates">
+<meta property="og:title" content="Norgates — Independent Record Label">
+<meta property="og:description" content="Release, distribute and protect your music — and keep your masters. Apply to Norgates.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Norgates — Independent Record Label">
+<meta name="twitter:description" content="Release, distribute and protect your music — and keep your masters.">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"#org","name":"Norgates","description":"Independent record label for bedroom producers, scene kids and outsiders.","sameAs":[]},{"@type":"WebSite","name":"Norgates","publisher":{"@id":"#org"}},{"@type":"MusicGroup","name":"Norgates","genre":"Independent"}]}</script>
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!--
+  ==========================================================
+  HOW TO EDIT THIS SITE
+  - Text on the page: edit it right here in index.html.
+    Each section is marked with a big comment.
+  - Artists, platform logos, features, footer links, socials
+    and the Apply link: edit content.js (simple lists).
+  - Images: drop files into the /images folder and point to them.
+  - Colors / logo size: top of style.css.
+  ==========================================================
+-->
 
-  <!-- Top bar -->
-  <header class="topbar">
-    <h1 class="title" aria-label="Norgates">NORGATES</h1>
-  </header>
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <a href="#" class="topbar-logo"><img src="images/logo.png" alt="Norgates"></a>
+  <div class="topbar-buttons">
+    <button class="btn btn-dark" data-open="login">Login</button>
+    <a class="btn btn-accent" data-apply>Apply</a>
+  </div>
+</header>
 
-  <main>
-    <!-- Past / Present / Future -->
-    <section class="timeline">
-      <div class="col reveal">
-        <h2 class="script">Past</h2>
-        <p class="item">FOUNDED<br>IN 2025</p>
-        <span class="star"></span>
-        <p class="item">230+ RELEASES<br>ON ALL PLATFORMS</p>
-        <span class="star"></span>
-        <p class="item">SHOWCASES<br>ACROSS EUROPE</p>
-      </div>
+<main class="panel">
 
-      <div class="col reveal">
-        <h2 class="script">Present</h2>
-        <p class="item">SELF FUNDED</p>
-        <span class="star"></span>
-        <p class="item">INDEPENDENT</p>
-        <div class="location">
-          <h2 class="script script--year">2026</h2>
-          <p class="item">GDANSK, POLAND</p>
-        </div>
-      </div>
+  <!-- ================= HERO ================= -->
+  <section class="hero glow">
+    <h1>Music distribution that does more</h1>
+    <p class="lead">NEXT by Norgates distributes and protects the rights of hundreds of rightsholders — and you keep your masters.</p>
+    <a class="btn btn-white btn-lg" data-apply>Apply to Release</a>
+    <div id="artists" class="artists"></div><!-- filled from content.js -->
+  </section>
 
-      <div class="col reveal">
-        <h2 class="script">Future</h2>
-        <p class="item">ARTIST<br>DEVELOPMENT</p>
-        <span class="star"></span>
-        <p class="item">CREATIVE FREEDOM</p>
-        <span class="star"></span>
-        <p class="item">PHYSICAL MEDIA<br>&amp; MERCH</p>
-      </div>
-    </section>
+  <!-- ================= PLATFORMS ================= -->
+  <section class="center">
+    <h2 class="big">Heard everywhere</h2>
+    <p class="lead">Every Norgates release goes out to the platforms your listeners already use.</p>
+    <div class="marquee-wrap"><div id="marquee" class="marquee"></div></div><!-- filled from content.js -->
+  </section>
 
-    <!-- Roster -->
-    <section class="clients reveal" id="roster">
-      <h2 class="script script--clients">Our artists</h2>
-      <ul class="clients__list" id="rosterList"></ul>
-    </section>
+  <!-- ================= DASHBOARD PREVIEW ================= -->
+  <section class="narrow">
+    <h2>Your music, in one place</h2>
+    <p class="muted">Get the NEXT dashboard; see every release, every stream and every payout, updated daily. See where your music is growing and get paid without chasing anyone.</p>
+    <!-- Replace with: <img class="preview" src="images/dashboard.png" alt="Dashboard"> -->
+    <img class="preview" src="images/analytics.png" alt="Dashboard">
+  </section>
 
-    <!-- Buttons, icons + note -->
-    <div class="bottom reveal">
-      <!-- Replace both hrefs with your real pages -->
-      <nav class="actions" aria-label="Clients and artists">
-        <a class="btn btn--line" href="https://next.norgates.com">LOGIN TO NEXT</a>
-        <a class="btn btn--fill" href="https://app.youform.com/forms/asbz9hjw">APPLY</a>
-      </nav>
+  <!-- ================= WHY NORGATES ================= -->
+  <section class="narrow">
+    <h2>Why Norgates</h2>
+    <div id="features" class="features"></div><!-- filled from content.js -->
+  </section>
 
-      <!-- Replace hrefs with your real profiles / address -->
-      <nav class="icons" aria-label="Contact and socials">
-        <a href="https://instagram.com/norgatesrecords" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/>
-          </svg>
-        </a>
-        <a href="mailto:@norgates.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="2.5" y="5" width="19" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="https://discord.gg/norgates" aria-label="Discord">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="currentColor" d="M19.6 5.3A17 17 0 0 0 15.4 4l-.5 1.1a15.6 15.6 0 0 0-5.8 0L8.6 4a17 17 0 0 0-4.2 1.3C1.7 9.3 1 13.2 1.3 17a17 17 0 0 0 5.2 2.6l1.1-1.8c-.6-.2-1.2-.5-1.7-.8l.4-.3a12.1 12.1 0 0 0 11.4 0l.4.3c-.5.3-1.1.6-1.7.8l1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.3-3.1-11.7ZM8.7 14.7c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Z"/>
-          </svg>
-        </a>
-      </nav>
-
-      <div class="note">
-        <p>Norgates is the world's leading fully independent record label,<br>serving 50+ artists across 180+ countries.<br></p>
-        <p>FOR LICENSING, BOOKINGS AND PRESS — GET IN TOUCH.</p>
-      </div>
+  <!-- ================= CALL TO ACTION ================= -->
+  <section class="cta glow">
+    <h2 class="big">Ready to release?</h2>
+    <div class="row">
+      <a class="btn btn-white btn-lg" data-apply>Apply</a>
+      <button class="btn btn-dark btn-lg" data-open="login">Login</button>
     </div>
-  </main>
+  </section>
+</main>
 
-  <footer class="footer reveal">
-    <img src="cdn/footer-img.png" alt="© 2025" class="footer-logo">
-  </footer>
+<!-- ================= FOOTER ================= -->
+<footer class="panel footer">
+  <div class="footer-top">
+    <div>
+      <img class="footer-logo" src="images/logo.png" alt="Norgates">
+      <p class="muted small">Don't miss a beat</p>
+    </div>
+    <div class="footer-links">
+      <p class="label">Company</p>
+      <ul id="footer-links"></ul><!-- filled from content.js -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div id="socials" class="socials"></div><!-- filled from content.js -->
+    <p class="muted small">© 2026 Norgates</p>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<!-- ================= LOGIN POPUP ================= -->
+<div class="modal" id="login" hidden>
+  <form class="modal-box">
+    <h3>Login</h3>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <button class="btn btn-accent full">Continue</button>
+  </form>
+</div>
+
+<script src="content.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

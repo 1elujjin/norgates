@@ -84,7 +84,7 @@ section { padding: 64px 24px; }
 @keyframes scroll { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 
 /* ---------- Dashboard preview ---------- */
-.preview { aspect-ratio: 16/7; width: 100%; max-width: 900px; margin: 40px auto 0; border-radius: 12px; object-fit: cover; }
+.preview { width: 100%; max-width: 900px; margin: 40px auto 0; border-radius: 12px; object-fit: cover; }
 
 /* ---------- Features ---------- */
 .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }

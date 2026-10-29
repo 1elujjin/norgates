@@ -69,9 +69,7 @@ section { padding: 64px 24px; }
 
 /* ---------- Artists ---------- */
 .artists { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 1150px; margin: 64px auto 0; }
-.artist { background: var(--card); padding: 6px; border-radius: 12px; text-align: left; transition: transform .45s cubic-bezier(.22,1,.36,1); }
 .artist:nth-child(even) { margin-top: 24px; }
-.artist:hover { transform: translateY(-4px); }
 .artist .cover { aspect-ratio: 1; width: 100%; object-fit: cover; border-radius: 8px; }
 .artist p { font-size: .75rem; font-weight: 700; padding: 8px 4px 4px; }
 @media (max-width: 760px) { .artists { grid-template-columns: repeat(3, 1fr); } }
@@ -119,4 +117,5 @@ section { padding: 64px 24px; }
 /* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { *, .marquee { animation: none !important; transition: none !important; } }
+
+/* @media (prefers-reduced-motion: reduce) { *, .marquee { animation: none !important; transition: none !important; } }

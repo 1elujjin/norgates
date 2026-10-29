@@ -36,11 +36,9 @@
   });
 
   // Login popup
-  const modal = $("#login");
-  document.querySelectorAll('[data-open="login"]').forEach((b) => b.addEventListener("click", () => (modal.hidden = false)));
-  modal.addEventListener("click", (e) => { if (e.target === modal) modal.hidden = true; });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.hidden = true; });
-  modal.querySelector("form").addEventListener("submit", (e) => e.preventDefault());
+  document.querySelectorAll("[data-open]").forEach((b) => {
+    b.href = SITE.loginLink; b.target = "_blank"; b.rel = "noopener";
+  });
 
   // Scroll reveal
   const els = document.querySelectorAll("main > section, footer");

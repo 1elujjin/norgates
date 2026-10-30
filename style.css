@@ -1,4 +1,15 @@
 /* =====================================================
+   NORGATES — STYLES
+   EASY SETTINGS at the top: colors and logo sizes.
+   Everything below is the layout, section by section.
+   ===================================================== */
+
+/* Shown in place of an image file that isn't in /images yet */
+.placeholder.preview {
+  aspect-ratio: 16 / 7;
+}
+
+/* =====================================================
    EASY SETTINGS — change colors and sizes here
    ===================================================== */
 :root {
@@ -10,7 +21,7 @@
   --text-muted: #9a9a9a;
   --border: #3a3a3a;
   --accent: #6d3df5;      /* purple buttons */
-  --glow: #5a2be0;        /* purple glow */
+  --glow: #bfbfbf;        /* gray-white glow */
   --star: #f2e14c;        /* yellow stars */
 
   --logo-height: 34px;        /* top bar logo size */
@@ -51,6 +62,8 @@ h2.big { font-size: clamp(2.4rem, 5.5vw, 3.8rem); }
 .btn-accent:hover { box-shadow: 0 8px 28px color-mix(in srgb, var(--accent) 55%, transparent); }
 .btn-white { background: var(--text); color: var(--bg); }
 .btn-white:hover { box-shadow: 0 8px 30px rgba(255,255,255,.25); }
+.btn-soft { background: linear-gradient(180deg, var(--text), var(--glow)); color: var(--bg); }
+.btn-soft:hover { box-shadow: 0 8px 28px color-mix(in srgb, var(--glow) 45%, transparent); }
 .full { width: 100%; }
 .row { display: flex; gap: 12px; justify-content: center; margin-top: 32px; }
 
@@ -67,16 +80,32 @@ section { padding: 64px 24px; }
 /* ---------- Placeholders ---------- */
 .placeholder { display: grid; place-items: center; border: 1px dashed var(--border); background: var(--muted); color: var(--text-muted); font-size: .65rem; letter-spacing: .1em; border-radius: 8px; }
 
-/* ---------- Artists ---------- */
-.artists { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; max-width: 1150px; margin: 64px auto 0; }
+/* ---------- Artists (endless, clickable) ---------- */
+.artists-wrap { position: relative; max-width: 1150px; margin: 64px auto 0; }
+.artists { overflow: hidden; padding-bottom: 6px; mask-image: linear-gradient(90deg, transparent, #000 13%, #000 87%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 13%, #000 87%, transparent); }
+.artists-track { display: flex; gap: 12px; will-change: transform; }
+.copy { display: contents; }
+/* four whole cards show at a time; the next one peeks, faded, on each side */
+.artist { flex: 0 0 calc(100% / 5 - 12px); }
 .artist:nth-child(even) { margin-top: 24px; }
 .artist .cover { aspect-ratio: 1; width: 100%; object-fit: cover; border-radius: 8px; }
-.artist p { font-size: .75rem; font-weight: 700; padding: 8px 4px 4px; }
-@media (max-width: 760px) { .artists { grid-template-columns: repeat(3, 1fr); } }
+.artist p { font-size: .75rem; font-weight: 700; padding: 8px 2px 4px; }
+@media (max-width: 980px) { .artist { flex-basis: calc(100% / 4 - 12px); } }
+@media (max-width: 620px) { .artist { flex-basis: calc(100% / 3 - 12px); } }
+
+.scroller { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--border); background: color-mix(in srgb, var(--card) 82%, transparent); backdrop-filter: blur(6px); color: var(--text); cursor: pointer;
+  transition: transform .45s cubic-bezier(.22,1,.36,1), background-color .45s, opacity .45s; }
+.scroller:hover { background: var(--muted); transform: translateY(-50%) scale(1.08); }
+.scroller:active { transform: translateY(-50%) scale(.92); transition-duration: .15s; }
+.scroller:disabled { opacity: .28; pointer-events: none; }
+.scroller svg { width: 18px; height: 18px; }
+.scroller.prev { left: -10px; }
+.scroller.next { right: -10px; }
+.artists-wrap.no-scroll .scroller { display: none; }
 
 /* ---------- Platform marquee ---------- */
 .marquee-wrap { margin-top: 48px; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-.marquee { display: flex; width: max-content; animation: scroll 90s linear infinite; will-change: transform; }
+.marquee { display: flex; width: max-content; animation: scroll 270s linear infinite; will-change: transform; }
 .marquee .group { display: flex; align-items: center; gap: 40px; padding-right: 40px; }
 .marquee .logo { height: 44px; width: auto; min-width: 44px; object-fit: contain; }
 .marquee .placeholder.logo { width: 44px; border-color: rgba(255,255,255,.4); font-size: 8px; }
@@ -107,18 +136,9 @@ section { padding: 64px 24px; }
 .socials a:hover { color: var(--text); transform: translateY(-2px); }
 .socials svg { width: 16px; height: 16px; }
 
-/* ---------- Login popup ---------- */
-.modal { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 24px; background: rgba(0,0,0,.8); backdrop-filter: blur(8px); }
-.modal[hidden] { display: none; }
-.modal-box { width: 100%; max-width: 380px; background: var(--panel); padding: 28px; border-radius: 12px; display: grid; gap: 12px; }
-.modal-box input { background: var(--card); border: 0; border-radius: 8px; padding: 11px 16px; color: var(--text); font: inherit; font-size: .875rem; outline: none; }
-.modal-box input:focus { box-shadow: 0 0 0 1px var(--accent); }
-
 /* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
-
-/* @media (prefers-reduced-motion: reduce) { *, .marquee { animation: none !important; transition: none !important; } }
 
 /* Mobile navbar */
 @media (max-width: 768px) {

@@ -14,12 +14,12 @@ const SITE = {
 
   // Artist cards under the hero
   artists: [
+    { name: "akselbolt", image: "images/artists/akselbolt.jpg" },
     { name: "lungskull", image: "images/artists/lungskull.png" },
     { name: "pupsies",   image: "images/artists/pupsies.jpg" },
     { name: "korpsebunny",  image: "images/artists/korpsebunny.webp" },
     { name: "backrooms",   image: "images/artists/backrooms.jpg" },
     { name: "yom",  image: "images/artists/yom.jpg" },
-    { name: "akselbolt", image: "images/artists/akselbolt.jpg" },
   ],
 
   // Scrolling platform logos (white logos on transparent look best)

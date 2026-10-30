@@ -26,7 +26,7 @@
   - Text on the page: edit it right here in index.html.
     Each section is marked with a big comment.
   - Artists, platform logos, features, footer links, socials
-    and the Apply link: edit content.js (simple lists).
+    and the Apply / Login links: edit content.js (simple lists).
   - Images: drop files into the /images folder and point to them.
   - Colors / logo size: top of style.css.
   ==========================================================
@@ -36,8 +36,8 @@
 <header class="topbar">
   <a href="#" class="topbar-logo"><img src="images/logo.png" alt="Norgates"></a>
   <div class="topbar-buttons">
-    <a class="btn btn-dark" data-open>Login</a>
-    <a class="btn btn-accent" data-apply>Apply</a>
+    <a class="btn btn-dark" data-login>Login</a>
+    <a class="btn btn-soft" data-apply>Apply</a>
   </div>
 </header>
 
@@ -48,21 +48,30 @@
     <h1>Music distribution that does more</h1>
     <p class="lead">NEXT by Norgates distributes and protects the rights of hundreds of rightsholders — and you keep your masters.</p>
     <a class="btn btn-white btn-lg" data-apply>Apply to Release</a>
-    <div id="artists" class="artists"></div><!-- filled from content.js -->
+
+    <!-- Artist rail: scrolls forever with the arrows, filled from content.js -->
+    <div class="artists-wrap">
+      <button type="button" class="scroller prev" aria-label="Previous artists">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="artists" id="artists"><div class="artists-track" id="artists-track"></div></div>
+      <button type="button" class="scroller next" aria-label="Next artists">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
   </section>
 
   <!-- ================= PLATFORMS ================= -->
   <section class="center">
     <h2 class="big">Heard everywhere</h2>
     <p class="lead">Every Norgates release goes out to the platforms your listeners already use.</p>
-    <div class="marquee-wrap"><div id="marquee" class="marquee"></div></div><!-- filled from content.js -->
+    <div class="marquee-wrap"><div class="marquee" id="marquee"></div></div><!-- filled from content.js -->
   </section>
 
   <!-- ================= DASHBOARD PREVIEW ================= -->
   <section class="narrow">
     <h2>Your music, in one place</h2>
     <p class="muted">Get the NEXT dashboard; see every release, every stream and every payout, updated daily. See where your music is growing and get paid without chasing anyone.</p>
-    <!-- Replace with: <img class="preview" src="images/dashboard.png" alt="Dashboard"> -->
     <img class="preview" src="images/analytics.png" alt="Dashboard">
   </section>
 
@@ -77,7 +86,7 @@
     <h2 class="big">Ready to release?</h2>
     <div class="row">
       <a class="btn btn-white btn-lg" data-apply>Apply</a>
-      <a class="btn btn-dark btn-lg" data-open>Login</a>
+      <a class="btn btn-dark btn-lg" data-login>Login</a>
     </div>
   </section>
 </main>
@@ -99,16 +108,6 @@
     <p class="muted small">© 2026 Norgates</p>
   </div>
 </footer>
-
-<!-- ================= LOGIN POPUP ================= -->
-<div class="modal" id="login" hidden>
-  <form class="modal-box">
-    <h3>Login</h3>
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Password" required>
-    <button class="btn btn-accent full">Continue</button>
-  </form>
-</div>
 
 <script src="content.js"></script>
 <script src="script.js"></script>
